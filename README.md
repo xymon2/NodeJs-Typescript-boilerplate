@@ -1,2 +1,3 @@
-# NodeJs-server-test
-연습~
+# NodeJs-typescript
+jest, ts, docker, express
+
