@@ -10,3 +10,16 @@ dist/
 
 # Optional eslint cache
 .eslintcache
+
+
+# VS Code
+.vscode
+!.vscode/tasks.js
+
+# Misc
+.DS_Store
+
+# Logs
+logs
+*.log
+npm-debug.log*
