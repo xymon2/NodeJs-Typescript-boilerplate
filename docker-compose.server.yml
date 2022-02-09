@@ -1,0 +1,17 @@
+version: '3.8'
+
+# 적당히 알아서 만드셈
+
+services:
+    dxc:
+        image: server-img:1.0
+        container_name: server-container
+        network_mode: host
+        restart: always
+        # volume - 데이터 보관(ex.upload file, log)
+        # volumes:
+            # - ./logs:/root/dist/logs
+        environment:
+            - NODE_ENV=development
+            - PORT=3001
+

@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+    dev-server:
+        image: server-dev-img:1.0
+        container_name: server-dev-container
+        restart: always
+        networks:
+            - dev-network
+        # volume - 데이터 보관(ex.upload file, log)
+        # volumes:
+            # - ./data/seeds/init.sql:/docker-entrypoint-initdb.d/init.sql
+            # - ./data/seeds/seed.sql:/docker-entrypoint-initdb.d/seed.sql
+            # - ./data/dev/postgres:/var/lib/postgresql/data
+        ports:
+            - '5000'
+        env_file: env.dev
+
+networks:
+    dev-network:
+        driver: bridge
