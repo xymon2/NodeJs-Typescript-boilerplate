@@ -4,7 +4,7 @@ version: '3.8'
 
 services:
     dxc:
-        image: server-img:1.0
+        image: server-img
         container_name: server-container
         network_mode: host
         restart: always

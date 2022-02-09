@@ -2,19 +2,44 @@ version: '3.8'
 
 services:
     dev-server:
-        image: server-dev-img:1.0
-        container_name: server-dev-container
-        restart: always
-        networks:
-            - dev-network
+      image: server-dev-img
+      container_name: server-dev-container
+      restart: always
+      networks:
+          - dev-network
         # volume - 데이터 보관(ex.upload file, log)
         # volumes:
             # - ./data/seeds/init.sql:/docker-entrypoint-initdb.d/init.sql
             # - ./data/seeds/seed.sql:/docker-entrypoint-initdb.d/seed.sql
             # - ./data/dev/postgres:/var/lib/postgresql/data
-        ports:
-            - '5000'
-        env_file: env.dev
+
+    # postgres:
+    #     image: postgres:12.5
+    #     container_name: postgres-dev
+    #     restart: always
+    #     networks:
+    #         - dev-network
+    #     volumes:
+    #         - ./data/seeds/init.sql:/docker-entrypoint-initdb.d/init.sql
+    #         - ./data/seeds/seed.sql:/docker-entrypoint-initdb.d/seed.sql
+    #         - ./data/dev/postgres:/var/lib/postgresql/data
+    #     ports:
+    #         - '5432:5432'
+    #     environment:
+    #         POSTGRES_DB: ddx-connect
+    #         POSTGRES_USER: deepbio
+    #         POSTGRES_PASSWORD: deepbiodeepbio
+
+    # rabbitmq:
+    #     image: rabbitmq
+    #     container_name: rabbitmq-dev
+    #     restart: always
+    #     networks:
+    #         - dev-network
+    #     ports:
+    #         - '5672:5672'
+    #         - '15672:15672'
+
 
 networks:
     dev-network:

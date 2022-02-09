@@ -1,6 +1,11 @@
 # Dependency directories
 node_modules/
+
+#dist directory
 dist/
+
+#test directory
+coverage
 
 # TypeScript cache
 *.tsbuildinfo
@@ -10,7 +15,6 @@ dist/
 
 # Optional eslint cache
 .eslintcache
-
 
 # VS Code
 .vscode

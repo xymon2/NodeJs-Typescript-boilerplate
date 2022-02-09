@@ -135,7 +135,7 @@ module.exports = {
     // runner: "jest-runner",
 
     // The paths to modules that run some code to configure or set up the testing environment before each test
-    setupFiles: ['<rootDir>/tests/unit/jest.setup.ts'],
+    setupFiles: ['<rootDir>/tests/unit/config.ts'],
 
     // A list of paths to modules that run some code to configure or set up the testing framework before each test
     // setupFilesAfterEnv: [],

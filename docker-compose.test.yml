@@ -1,19 +1,37 @@
 version: '3.8'
 
 services:
-  test1:
-    image: test1-img:1.0
-    container_name: test1-container
-    restart: always
-    networks:
-        - test-network
-    # volumes:
-    #     - ./data/seeds/init.sql:/docker-entrypoint-initdb.d/init.sql
-    ports:
-        - '3002'
-    env_file:
-      - .env.test
+    test-server:
+      image: server-test-img
+      container_name: server-test-container
+      restart: always
+      networks:
+          - integ-test-network
+  # postgres:
+  #   image: postgres:12.5
+  #   container_name: postgres-test
+  #   restart: always
+  #   networks:
+  #       - integ-test-network
+  #   volumes:
+  #       - ./data/seeds/init.sql:/docker-entrypoint-initdb.d/init.sql
+  #   ports:
+  #       - '25432:5432'
+  #   environment:
+  #       POSTGRES_DB: ddx-integ-test
+  #       POSTGRES_USER: ddx-integ-test
+  #       POSTGRES_PASSWORD: ddx-integ-test
+  
+  # rabbitmq:
+  #   image: rabbitmq:3
+  #   container_name: rabbitmq-test
+  #   restart: always
+  #   networks:
+  #       - integ-test-network
+  #   ports:
+  #       - '25672:5672' # see https://www.rabbitmq.com/networking.html#ports
+
 
 networks:
-  test-network:
+  integ-test-network:
     driver: bridge

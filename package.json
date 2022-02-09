@@ -4,12 +4,14 @@
     "description": "server test",
     "main": "./dist/index.js",
     "scripts": {
-        "test": "jest",
-        "test:cov": "jest --coverage",
-        "test:e2e": "jest --config ./test/jest-e2e.json",
         "start": "NODE_ENV=development nodemon",
         "build": "tsc",
-        "lint": "eslint --max-warnings=0 --ext=tsx,ts src --fix"
+        "dev": "./scripts/dev.sh",
+        "test": "jest",
+        "test:cov": "jest --coverage",
+        "test:integ":"./scripts/integ-test.sh",
+        "run-integ-test":"jest -i --config=jest.integ.config.js --watchAll --coverage",
+        "lint": "eslint --max-warnings=0 --ext=ts src --fix"
     },
     "repository": {
         "type": "git",
@@ -39,6 +41,7 @@
         "eslint": "^8.8.0",
         "eslint-config-prettier": "^8.3.0",
         "eslint-plugin-prettier": "^4.0.0",
+        "eslint-plugin-react": "^7.28.0",
         "jest": "^27.5.1",
         "nodemon": "^2.0.15",
         "prettier": "^2.5.1",
