@@ -1,5 +1,5 @@
 import { UserModel } from '../models/user.model';
-import { Service } from './index';
+import { Service } from '.';
 
 export class UserService extends Service {
     private userModel: UserModel;

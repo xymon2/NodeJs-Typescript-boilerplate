@@ -1,4 +1,4 @@
-import { Model } from './index';
+import { Model } from '.';
 
 export class UserModel extends Model {
     db: any;
