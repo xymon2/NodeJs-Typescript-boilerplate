@@ -8,7 +8,9 @@ export class UserService extends Service {
         this.userModel = userModel;
     }
 
-    getUsers(id: string, query: string) {
-        const users = this.userModel.getUsers();
+    async getUsers(id: string, query: string) {
+        const users = await this.userModel.getUsers();
+        //do something
+        return users;
     }
 }

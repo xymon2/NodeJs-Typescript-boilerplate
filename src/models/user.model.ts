@@ -10,7 +10,7 @@ export class UserModel extends Model {
             { id: 'test2', username: 'spongebob' },
         ];
     }
-    getUsers() {
-        return this.db;
+    async getUsers() {
+        return await this.db;
     }
 }
