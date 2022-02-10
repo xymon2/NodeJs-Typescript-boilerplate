@@ -9,8 +9,11 @@ export class UserController extends Controller {
         super();
         this.userService = userService;
     }
-    createUser = async (req: Request, res: Response, next: NextFunction) => {};
-    getUsers = async (req: Request, res: Response, next: NextFunction) => {
+    async createUser(req: Request, res: Response, next: NextFunction) {
+        const serviceResult = await this.userService.createUser();
+        return res.status(200).json({ status: 200, data: serviceResult, message: 'success' });
+    }
+    async getUsers(req: Request, res: Response, next: NextFunction) {
         const id = 'test';
         const query = 'query';
         try {
@@ -19,8 +22,17 @@ export class UserController extends Controller {
         } catch (err) {
             return res.status(400).json({ status: 400, message: 'badreq' });
         }
-    };
-    getUserById = async (req: Request, res: Response, next: NextFunction) => {};
-    updateUser = async (req: Request, res: Response, next: NextFunction) => {};
-    deleteUser = async (req: Request, res: Response, next: NextFunction) => {};
+    }
+    async getUserById(req: Request, res: Response, next: NextFunction) {
+        const serviceResult = await this.userService.getUserById();
+        return res.status(200).json({ status: 200, data: serviceResult, message: 'success' });
+    }
+    async updateUser(req: Request, res: Response, next: NextFunction) {
+        const serviceResult = await this.userService.updateUser();
+        return res.status(200).json({ status: 200, data: serviceResult, message: 'success' });
+    }
+    async deleteUser(req: Request, res: Response, next: NextFunction) {
+        const serviceResult = await this.userService.deleteUser();
+        return res.status(200).json({ status: 200, data: serviceResult, message: 'success' });
+    }
 }

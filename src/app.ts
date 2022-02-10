@@ -45,7 +45,7 @@ const initServer = async () => {
                 process.exit(1);
             });
         process.on('SIGINT', () => {
-            console.log('Received SIGINT/Ctrl+C, shutting down...');
+            console.log('\n Received SIGINT/Ctrl+C, shutting down...');
             server.close();
 
             // db 연결해제 추가하셈;
