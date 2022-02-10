@@ -10,10 +10,12 @@ export class UserController extends Controller {
         this.userService = userService;
     }
     async createUser(req: Request, res: Response, next: NextFunction) {
+        console.log('?');
         const serviceResult = await this.userService.createUser();
         return res.status(200).json({ status: 200, data: serviceResult, message: 'success' });
     }
     async getUsers(req: Request, res: Response, next: NextFunction) {
+        console.log('?');
         const id = 'test';
         const query = 'query';
         try {
@@ -24,14 +26,17 @@ export class UserController extends Controller {
         }
     }
     async getUserById(req: Request, res: Response, next: NextFunction) {
+        console.log('?');
         const serviceResult = await this.userService.getUserById();
         return res.status(200).json({ status: 200, data: serviceResult, message: 'success' });
     }
     async updateUser(req: Request, res: Response, next: NextFunction) {
+        console.log('?');
         const serviceResult = await this.userService.updateUser();
         return res.status(200).json({ status: 200, data: serviceResult, message: 'success' });
     }
     async deleteUser(req: Request, res: Response, next: NextFunction) {
+        console.log('?');
         const serviceResult = await this.userService.deleteUser();
         return res.status(200).json({ status: 200, data: serviceResult, message: 'success' });
     }
