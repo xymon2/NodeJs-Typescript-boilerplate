@@ -4,8 +4,7 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 import express, { Express, Request, Response, NextFunction } from 'express';
-import { routes } from './routes';
-import { userRouter } from './routes/user.route';
+import { routes } from './routes/v1';
 
 const PORT = process.env.PORT ? parseInt(process.env.PORT) : 5000;
 
@@ -19,15 +18,12 @@ const appSetting = async (): Promise<Express> => {
     // }
 
     //middleware connection
+    //~~~bla bla
 
     app.get('/', (req: Request, res: Response, next: NextFunction) => {
         res.send('Hello, world!');
     });
 
-    // app.get('/api/v1', (req, res, next) => {
-    //     console.log('dsds');
-    //     res.send('dsdsdss');
-    // });
     // '/api/v1';
     //router connection
     app.use('/api/v1', routes);

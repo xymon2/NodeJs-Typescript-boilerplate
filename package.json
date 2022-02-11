@@ -9,8 +9,8 @@
         "dev": "./scripts/dev.sh",
         "test": "jest",
         "test:cov": "jest --coverage",
-        "test:integ":"./scripts/integ-test.sh",
-        "run-integ-test":"jest -i --config=jest.integ.config.js --watchAll --coverage",
+        "test:integ": "./scripts/integ-test.sh",
+        "run-integ-test": "jest -i --config=jest.integ.config.js --watchAll --coverage",
         "lint": "eslint --max-warnings=0 --ext=ts src --fix"
     },
     "repository": {

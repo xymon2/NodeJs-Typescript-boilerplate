@@ -9,35 +9,32 @@ export class UserController extends Controller {
         super();
         this.userService = userService;
     }
-    async createUser(req: Request, res: Response, next: NextFunction) {
-        console.log('?');
+
+    createUser = async (req: Request, res: Response, next: NextFunction) => {
         const serviceResult = await this.userService.createUser();
+
         return res.status(200).json({ status: 200, data: serviceResult, message: 'success' });
-    }
-    async getUsers(req: Request, res: Response, next: NextFunction) {
-        console.log('?');
+    };
+    getUsers = async (req: Request, res: Response, next: NextFunction) => {
         const id = 'test';
         const query = 'query';
         try {
             const serviceResult = await this.userService.getUsers(id, query);
-            return res.status(200).json({ status: 200, data: serviceResult, message: 'success' });
+            res.send({ status: 200, data: serviceResult, message: 'success' });
         } catch (err) {
-            return res.status(400).json({ status: 400, message: 'badreq' });
+            res.send({ status: 400, message: 'badreq' });
         }
-    }
-    async getUserById(req: Request, res: Response, next: NextFunction) {
-        console.log('?');
+    };
+    getUserById = async (req: Request, res: Response, next: NextFunction) => {
         const serviceResult = await this.userService.getUserById();
         return res.status(200).json({ status: 200, data: serviceResult, message: 'success' });
-    }
-    async updateUser(req: Request, res: Response, next: NextFunction) {
-        console.log('?');
+    };
+    updateUser = async (req: Request, res: Response, next: NextFunction) => {
         const serviceResult = await this.userService.updateUser();
         return res.status(200).json({ status: 200, data: serviceResult, message: 'success' });
-    }
-    async deleteUser(req: Request, res: Response, next: NextFunction) {
-        console.log('?');
+    };
+    deleteUser = async (req: Request, res: Response, next: NextFunction) => {
         const serviceResult = await this.userService.deleteUser();
         return res.status(200).json({ status: 200, data: serviceResult, message: 'success' });
-    }
+    };
 }
