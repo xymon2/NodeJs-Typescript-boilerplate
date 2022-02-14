@@ -18,7 +18,6 @@ const appSetting = async (): Promise<Express> => {
     // }
 
     //middleware connection
-    //~~~bla bla
 
     app.get('/', (req: Request, res: Response, next: NextFunction) => {
         res.send('Hello, world!');

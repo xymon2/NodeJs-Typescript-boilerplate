@@ -25,4 +25,4 @@ COMPOSE_HTTP_TIMEOUT=120 docker-compose -f docker-compose.test.yml up -d --force
 
 sleep 20s
 
-NODE_ENV=test npm run run-integ-test
+NODE_ENV=test npm run run-integ-test-server
