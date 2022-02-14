@@ -1,6 +1,8 @@
-import e, { NextFunction, Request, Response, Router } from 'express';
+import { NextFunction, Request, Response } from 'express';
 import { Controller } from '.';
+import { Badrequest } from '../error';
 import { UserService } from '../services';
+import { asyncHandler } from '../utils';
 
 export class UserController extends Controller {
     private userService: UserService;
@@ -10,31 +12,36 @@ export class UserController extends Controller {
         this.userService = userService;
     }
 
-    createUser = async (req: Request, res: Response, next: NextFunction) => {
+    createUser = asyncHandler(async (req: Request, res: Response, next: NextFunction) => {
         const serviceResult = await this.userService.createUser();
 
         return res.status(200).json({ status: 200, data: serviceResult, message: 'success' });
-    };
-    getUsers = async (req: Request, res: Response, next: NextFunction) => {
+    });
+
+    getUsers = asyncHandler(async (req: Request, res: Response, next: NextFunction) => {
         const id = 'test';
         const query = 'query';
         try {
             const serviceResult = await this.userService.getUsers(id, query);
             res.send({ status: 200, data: serviceResult, message: 'success' });
         } catch (err) {
-            res.send({ status: 400, message: 'badreq' });
+            const msg = (err as Error).message;
+            throw new Badrequest(msg);
         }
-    };
-    getUserById = async (req: Request, res: Response, next: NextFunction) => {
+    });
+
+    getUserById = asyncHandler(async (req: Request, res: Response, next: NextFunction) => {
         const serviceResult = await this.userService.getUserById();
         return res.status(200).json({ status: 200, data: serviceResult, message: 'success' });
-    };
-    updateUser = async (req: Request, res: Response, next: NextFunction) => {
+    });
+
+    updateUser = asyncHandler(async (req: Request, res: Response, next: NextFunction) => {
         const serviceResult = await this.userService.updateUser();
         return res.status(200).json({ status: 200, data: serviceResult, message: 'success' });
-    };
-    deleteUser = async (req: Request, res: Response, next: NextFunction) => {
+    });
+
+    deleteUser = asyncHandler(async (req: Request, res: Response, next: NextFunction) => {
         const serviceResult = await this.userService.deleteUser();
         return res.status(200).json({ status: 200, data: serviceResult, message: 'success' });
-    };
+    });
 }

@@ -4,7 +4,7 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 import express, { Express, Request, Response, NextFunction } from 'express';
-import { routes } from './routes/v1';
+import { routeV1 } from './routes/v1';
 
 const PORT = process.env.PORT ? parseInt(process.env.PORT) : 5000;
 
@@ -26,7 +26,7 @@ const appSetting = async (): Promise<Express> => {
 
     // '/api/v1';
     //router connection
-    app.use('/api/v1', routes);
+    app.use('/api/v1', routeV1);
 
     return app;
 };

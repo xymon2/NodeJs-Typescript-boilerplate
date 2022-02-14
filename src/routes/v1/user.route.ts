@@ -1,7 +1,7 @@
 import { Router } from 'express';
 import { UserController } from '../../controllers';
 
-export const userRouter = (userController: UserController) => {
+export const userRouter = (userController: UserController): Router => {
     const userRouter = Router({ mergeParams: true });
 
     userRouter.route('').get(userController.getUsers).post(userController.createUser);
