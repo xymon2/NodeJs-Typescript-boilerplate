@@ -4,12 +4,13 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 import express, { Express, Request, Response, NextFunction } from 'express';
+import { routeV1 } from './routes/v1';
 
 const PORT = process.env.PORT ? parseInt(process.env.PORT) : 5000;
 
 const appSetting = async (): Promise<Express> => {
     const app = express();
-    const urlPrefix = '/api';
+    // const urlPrefix = '/api';
     //db connection
     // if (process.env.NODE_ENV !== 'production') {
     // ~~~.createChannel
@@ -17,13 +18,15 @@ const appSetting = async (): Promise<Express> => {
     // }
 
     //middleware connection
-
-    //controller/router connection
-    // app.use(`${urlPrefix}/foo`, fooController);
+    //~~~bla bla
 
     app.get('/', (req: Request, res: Response, next: NextFunction) => {
         res.send('Hello, world!');
     });
+
+    // '/api/v1';
+    //router connection
+    app.use('/api/v1', routeV1);
 
     return app;
 };
@@ -45,7 +48,7 @@ const initServer = async () => {
                 process.exit(1);
             });
         process.on('SIGINT', () => {
-            console.log('Received SIGINT/Ctrl+C, shutting down...');
+            console.log('\n Received SIGINT/Ctrl+C, shutting down...');
             server.close();
 
             // db 연결해제 추가하셈;
