@@ -1,0 +1,21 @@
+name: Integration Test
+
+on:
+    pull_request:
+        branches: [dev, release, main]
+
+jobs:
+    integration-test:
+        runs-on: ubuntu-latest
+        timeout-minutes: 10
+
+
+        # runs all of the steps inside the specified container rather than on the VM host.
+        # Because of this the network configuration changes from host based network to a container network.
+        container:
+          image: node:16
+
+        steps:
+            - uses: actions/checkout@v2
+            - run: npm ci
+            - run: npm run run-integ-test

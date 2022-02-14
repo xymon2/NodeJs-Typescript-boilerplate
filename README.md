@@ -38,3 +38,9 @@ docker-compose.test.yml
 
 ## dockerignore
 db 폴더 넣을 것
+
+
+# 기타 명령어
+
+## git
+git checkout -b issue-n dev # 'dev' 최신 커밋을 기준으로 새로운 새로운 브랜치 'issue-n'을 만들고 이 branch로 checkout
